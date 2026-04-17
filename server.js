@@ -12,6 +12,7 @@ const connectDB   = require('./config/db');
 connectDB();
 
 const app = express();
+app.set('trust proxy', 1);
 
 // ── Security headers ───────────────────────────────────────────
 app.use(helmet({
