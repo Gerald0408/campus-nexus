@@ -1,0 +1,23 @@
+# render.yaml — Render deployment config
+# Docs: https://render.com/docs/render-yaml
+
+services:
+  - type: web
+    name: campus-nexus
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false        # Set manually in Render dashboard
+      - key: SESSION_SECRET
+        sync: false        # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false        # Set manually in Render dashboard
+      - key: RATE_LIMIT_WINDOW_MS
+        value: "900000"
+      - key: RATE_LIMIT_MAX
+        value: "100"
